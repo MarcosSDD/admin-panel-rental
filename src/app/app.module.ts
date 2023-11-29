@@ -15,13 +15,19 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { CardComponent } from './card/card.component';
+import { ClientBarChartComponent } from './charts/client-bar-chart/client-bar-chart.component';
+import { CompanyPieChartComponent } from './charts/company-pie-chart/company-pie-chart.component';
+import { MiniCardComponent } from './mini-card/mini-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     DashComponent,
-    CardComponent
+    CardComponent,
+    ClientBarChartComponent,
+    CompanyPieChartComponent,
+    MiniCardComponent
   ],
   imports: [
     BrowserModule,
