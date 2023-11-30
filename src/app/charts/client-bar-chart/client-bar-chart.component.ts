@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
+import { error } from 'console';
+import { BarChartService } from 'src/app/services/bar-chart.service';
 
 @Component({
   selector: 'app-client-bar-chart',
@@ -7,42 +9,46 @@ import Chart from 'chart.js/auto';
   styleUrls: ['./client-bar-chart.component.css']
 })
 export class ClientBarChartComponent implements OnInit {
-
-  constructor() { }
+  
+  result: any;
+  
+  constructor(private service: BarChartService ) { }
 
   ngOnInit(): void {
-    this.createChart();
+    this.getRentsByClients();
   }
+  
   public chart: any;
 
-  createChart(){
-    this.chart = new Chart("barChart", {
-      type: 'bar', //this denotes tha type of chart
-
-      data: {// values on X-Axis
-        labels: ['2022-05-10', '2022-05-11', '2022-05-12','2022-05-13',
-								 '2022-05-14', '2022-05-15', '2022-05-16','2022-05-17', ], 
-	       datasets: [
-          {
-            label: "Sales",
-            data: ['467','576', '572', '79', '92',
-								 '574', '573', '576'],
-            backgroundColor: 'blue'
-          },
-          {
-            label: "Profit",
-            data: ['542', '542', '536', '327', '17',
-									 '0.00', '538', '541'],
-            backgroundColor: 'limegreen'
-          }  
-        ]
-      },
-      options: {
-        aspectRatio:2.5
-      }
-      
-    });
+  getRentsByClients(): void {
+    this.service.getRentsbyClients().subscribe({
+      next: (res:any) => {
+        this.result = res;
+        const clientNames: string[] = this.result.map((client: any) => client.name_client);
+        const quantityRents: string[] = this.result.map((client: any) => client.records_quantity);
+        console.log(quantityRents)
+        this.chart = new Chart("barChart", {
+          type: 'bar', //this denotes tha type of chart
     
+          data: {// values on X-Axis
+            labels: clientNames, 
+             datasets: [
+              {
+                label: "Arriendos",
+                data: quantityRents,
+                backgroundColor: 'blue'
+              } 
+            ]
+          },
+          options: {
+            aspectRatio: 2.0
+          }
+          
+        });
+      },
+      error: (error:any)=>{
+        console.error('Error al obtener el listado de empresas', error);
+      }
+    })
   }
-
 }

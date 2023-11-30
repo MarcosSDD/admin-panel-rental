@@ -10,12 +10,12 @@
 
     <!--Charts-->
     <mat-grid-tile [colspan]="( cardLayout | async )?.chart?.cols" [rowspan]="( cardLayout | async )?.chart?.rows">
-      <app-card title="Cliente menos Arriendos">
+      <app-card title="Cantidad de Arriendos Por Empresa">
         <app-company-pie-chart></app-company-pie-chart>
       </app-card>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="( cardLayout | async )?.chart?.cols" [rowspan]="( cardLayout | async )?.chart?.rows">
-      <app-card title="Arriendos Mensuales">
+      <app-card title="Arriendos Mensuales Por Cliente">
         <app-client-bar-chart></app-client-bar-chart>
       </app-card>
     </mat-grid-tile>

@@ -1,40 +1,51 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
+import { PieChartService } from 'src/app/services/pie-chart.service';
+
 @Component({
   selector: 'app-company-pie-chart',
   templateUrl: './company-pie-chart.component.html',
   styleUrls: ['./company-pie-chart.component.css']
 })
 export class CompanyPieChartComponent implements OnInit {
-
-  constructor() { }
-
+  
+  result: any;
+  
+  constructor(private service: PieChartService) { }
+  
   ngOnInit(): void {
-    this.createChart();
+    this.getCompanys();
   }
-
+  
   public chart: any;
   
-  createChart(){
-    this.chart = new Chart("pieChart", {
-      type: 'pie',
-      data: {
-        labels: [
-          'Red',
-          'Blue',
-          'Yellow'
-        ],
-        datasets: [{
-          label: 'My First Dataset',
-          data: [300, 50, 100],
-          backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
-          ],
-          hoverOffset: 4
-        }]
-      }
-    })
-  }
+  getCompanys(): void{
+    this.service.getRentsbyCompany().subscribe({
+      next: (res:any) => {
+      this.result = res;
+      const companyNames: string[] = this.result.map((company: any) => company.name_company);
+      const quantityRents: string[] = this.result.map((company: any) => company.records_quantity);
+      
+      this.chart = new Chart("pieChart", {
+        type: 'pie',
+        data: {
+          labels: companyNames,
+          datasets: [{
+            label: '',
+            data: quantityRents,
+            backgroundColor: [
+              'rgb(255, 99, 132)',
+              'rgb(54, 162, 235)',
+              'rgb(255, 205, 86)'
+            ],
+            hoverOffset: 4,
+          }],
+        },
+      })
+    },
+    error: (error) => {
+      console.error('Error al obtener el listado de empresas', error);
+    }
+  });
+  } 
 }
