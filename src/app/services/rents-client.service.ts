@@ -9,7 +9,7 @@ const headers = new HttpHeaders().set('Authorization', `Token ${environment.API_
   providedIn: 'root'
 })
 
-export class BarChartService {
+export class RentsClientService {
 
   private apiUrlClients = `${environment.URL}/api/rents-clients`;
   

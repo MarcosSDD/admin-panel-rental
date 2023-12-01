@@ -9,17 +9,11 @@ const headers = new HttpHeaders().set('Authorization', `Token ${environment.API_
   providedIn: 'root'
 })
 
-export class PieChartService {
-  
-  private apiUrlCompanys = `${environment.URL}/api/companys`;
+export class RentsCompanyService {
 
   private apiUrlRents = `${environment.URL}/api/rents-companys`;
 
   constructor(private http: HttpClient) { }
-  
-  getDataCompanys(): Observable<any> {
-    return this.http.get<any>(this.apiUrlCompanys, {headers});
-  }
 
   getRentsbyCompany(): Observable<any> {
     return this.http.get<any>(this.apiUrlRents, {headers});

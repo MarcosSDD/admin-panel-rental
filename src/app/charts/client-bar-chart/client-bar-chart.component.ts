@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { error } from 'console';
-import { BarChartService } from 'src/app/services/bar-chart.service';
+import { RentsClientService } from 'src/app/services/rents-client.service';
 
 @Component({
   selector: 'app-client-bar-chart',
@@ -12,7 +12,7 @@ export class ClientBarChartComponent implements OnInit {
   
   result: any;
   
-  constructor(private service: BarChartService ) { }
+  constructor(private service: RentsClientService ) { }
 
   ngOnInit(): void {
     this.getRentsByClients();
@@ -26,7 +26,6 @@ export class ClientBarChartComponent implements OnInit {
         this.result = res;
         const clientNames: string[] = this.result.map((client: any) => client.name_client);
         const quantityRents: string[] = this.result.map((client: any) => client.records_quantity);
-        console.log(quantityRents)
         this.chart = new Chart("barChart", {
           type: 'bar', //this denotes tha type of chart
     

@@ -10,6 +10,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +21,10 @@ import { CardComponent } from './card/card.component';
 import { ClientBarChartComponent } from './charts/client-bar-chart/client-bar-chart.component';
 import { CompanyPieChartComponent } from './charts/company-pie-chart/company-pie-chart.component';
 import { MiniCardComponent } from './mini-card/mini-card.component';
+import { ButtonBoxComponent } from './pages/button-box/button-box.component';
+import { CompanySetComponent } from './pages/company-set/company-set.component';
+import { ClientSetComponent } from './pages/client-set/client-set.component';
+import { CompanyCreateComponent } from './pages/company-create/company-create.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +34,11 @@ import { MiniCardComponent } from './mini-card/mini-card.component';
     CardComponent,
     ClientBarChartComponent,
     CompanyPieChartComponent,
-    MiniCardComponent
+    MiniCardComponent,
+    ButtonBoxComponent,
+    CompanySetComponent,
+    ClientSetComponent,
+    CompanyCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +52,9 @@ import { MiniCardComponent } from './mini-card/mini-card.component';
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

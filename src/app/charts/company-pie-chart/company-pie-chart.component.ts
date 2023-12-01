@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
-import { PieChartService } from 'src/app/services/pie-chart.service';
+import { RentsCompanyService } from 'src/app/services/rents-company.service';
 
 @Component({
   selector: 'app-company-pie-chart',
@@ -11,7 +11,7 @@ export class CompanyPieChartComponent implements OnInit {
   
   result: any;
   
-  constructor(private service: PieChartService) { }
+  constructor(private service: RentsCompanyService) { }
   
   ngOnInit(): void {
     this.getCompanys();
