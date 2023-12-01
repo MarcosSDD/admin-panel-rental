@@ -14,7 +14,6 @@ export class DashComponent {
   
   miniCardData = MINICARDDATA;
   
-  /** Based on the screen size, switch from standard to one column per row */
   cardLayout = this.breakpointObserver.observe([Breakpoints.Handset, Breakpoints.Tablet]).pipe(
     map(({ matches }) => {
       if (matches) {

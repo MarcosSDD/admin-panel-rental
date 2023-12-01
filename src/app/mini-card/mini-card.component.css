@@ -16,7 +16,7 @@
   
   .title-text {
     font-weight: 400;
-    margin-top : 20px;
+    margin-top : 0px;
     text-align : center;
     color      : grey;
   }
@@ -33,7 +33,7 @@
   
   .difference-text {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 0px;
   }
   
   .card-icon {
@@ -50,4 +50,10 @@
   
   .red-text {
     color: red;
+    
+}
+
+.simbol-text{
+  font-size: 25px;
+  margin-bottom: 30px;
 }

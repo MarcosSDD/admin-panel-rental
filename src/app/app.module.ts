@@ -25,6 +25,7 @@ import { ButtonBoxComponent } from './pages/button-box/button-box.component';
 import { CompanySetComponent } from './pages/company-set/company-set.component';
 import { ClientSetComponent } from './pages/client-set/client-set.component';
 import { CompanyCreateComponent } from './pages/company-create/company-create.component';
+import { ClientCreateComponent } from './pages/client-create/client-create.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { CompanyCreateComponent } from './pages/company-create/company-create.co
     ButtonBoxComponent,
     CompanySetComponent,
     ClientSetComponent,
-    CompanyCreateComponent
+    CompanyCreateComponent,
+    ClientCreateComponent
   ],
   imports: [
     BrowserModule,

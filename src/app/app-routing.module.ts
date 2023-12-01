@@ -3,8 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashComponent } from './dash/dash.component';
 import { ButtonBoxComponent } from './pages/button-box/button-box.component';
 import { CompanySetComponent } from './pages/company-set/company-set.component';
-import { ClientSetComponent } from './pages/client-set/client-set.component';
 import { CompanyCreateComponent } from './pages/company-create/company-create.component';
+import { ClientSetComponent } from './pages/client-set/client-set.component';
+import { ClientCreateComponent } from './pages/client-create/client-create.component';
 
 const routes: Routes = [
   {
@@ -13,19 +14,19 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-  path: 'Dashboard',
+  path: 'dashboard',
   component: DashComponent,
   },
   {
-    path: 'Empresas',
+    path: 'empresas',
     component: CompanySetComponent,
   },
   {
-    path: 'Clientes',
+    path: 'clientes',
     component: ClientSetComponent,
   },
   {
-    path: 'Botonera',
+    path: 'botonera',
     component: ButtonBoxComponent,
   },
   { 
@@ -39,6 +40,18 @@ const routes: Routes = [
   { 
     path: 'company-edit/:id',
     component: CompanyCreateComponent,
+  },
+  { 
+    path: 'client-create',
+    component: ClientCreateComponent,
+  },
+  { 
+    path: 'client-set',
+    component: ClientSetComponent,
+  },
+  { 
+    path: 'client-edit/:id',
+    component: ClientCreateComponent,
   },
   {
     path: '**',

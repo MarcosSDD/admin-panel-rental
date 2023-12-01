@@ -1,8 +1,7 @@
-.fas {
-    cursor: pointer;
+.text-danger {
+    text-align: start;
     margin-left: 7px;
 }
-
 .title {
     font-size: 1.8rem;
     font-family: 'Montserrat', sans-serif;

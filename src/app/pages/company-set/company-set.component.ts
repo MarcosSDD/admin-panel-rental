@@ -33,7 +33,7 @@ export class CompanySetComponent implements OnInit {
   deleteCompany(id: string){
     this.companyService.delCompany(id).subscribe({
       next: (data: any) => {
-      this.toastr.error('El producto fue eliminado con exito' ,'Producto Eliminado');
+      this.toastr.error('El cliente fue eliminado con exito' ,'Cliente Eliminado');
       this.getCompanys();
       }, 
       error: (error: any ) => {
