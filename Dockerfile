@@ -1,17 +1,23 @@
-FROM node:lts
+# ----------------------------
+# build from source
+# ----------------------------
+FROM node:18 AS build
 
-RUN mkdir /home/node/app && chown node:node /home/node/app
+WORKDIR /app
 
-RUN mkdir /home/node/app/node_modules && chown node:node /home/node/app/node_modules
+COPY package*.json .
+RUN npm install
 
-WORKDIR  /home/node/app
+COPY . .
+RUN npm run build
 
-USER node
+# ----------------------------
+# run with nginx
+# ----------------------------
+FROM nginx
 
-COPY --chown=node:node package.json package-lock.json ./
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d
+COPY --from=build /app/dist/admin-panel-rental /usr/share/nginx/html
 
-RUN npm ci --quiet
-
-COPY --chown=node:node . .
-
-EXPOSE 4200
+EXPOSE 80

@@ -1,1 +1,23 @@
-<h1>botonera</h1>
+<div class="animate__animated animate__fadeIn animate__faster m-5">
+    <span class="title">Panel Consultas</span>
+    <hr>
+    
+    <div class="row">
+        <div class="col">
+            
+            <button *ngFor="let button of buttons"
+                    [class]="getClassCSS( button )"
+                    (click)="activeButton( button )">
+                {{ button | titlecase }}
+            </button>
+    
+        </div>
+    </div>
+
+</div>
+
+<div *ngIf="data.length > 0" class="row">
+    <div class="col">
+        <!-- <app-tabla [buttons]="buttons"></app-tabla> -->
+    </div>
+</div>

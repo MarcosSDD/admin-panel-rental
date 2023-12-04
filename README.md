@@ -20,7 +20,15 @@ Install the `npm` packages described in the `package.json` and verify that it wo
 npm install
 npm start
 ```
-#### Web
+### Set TOKEN
+
+Edit .env file or, failing that, enviroment.ts, and edit API_KEY for the TOKEN obtained from the backend
+
+```
+API_KEY = XXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+### Web
 
 And play! to:
 http://localhost:4200/
@@ -28,7 +36,7 @@ http://localhost:4200/
 ## Run Local Development with Docker
 
 ```shell
-docker compose up 
+docker compose up -d
 
 ```
 

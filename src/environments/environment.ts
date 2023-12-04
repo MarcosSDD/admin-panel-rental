@@ -11,7 +11,7 @@
   
 export const environment = {
     production: false,
-    API_KEY: 'f47a4c016aa706e1a8c9a0eb40c09afa89447ee9',
+    API_KEY: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX',
     URL: 'http://localhost:8000'
 };
   /*
